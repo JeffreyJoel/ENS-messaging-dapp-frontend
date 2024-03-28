@@ -69,21 +69,26 @@ export default function UsersComponent() {
 
   const { loading, data } = useGetUsers();
   return (
-    <Dialog>
+    <>
+    <Dialog >
       <DialogTrigger asChild>
-      <div className="flex w-full max-w-lg items-center mt-7 space-x-2">
+ <div className="mt-10">
+  <h2 className="text-2xl">Oops! You have no messages</h2>
+  <p className="text-gray-300 text-center text-base mt-4">Search for available users to begin chatting</p>
+ <div className="flex w-full max-w-lg items-center mt-7 space-x-2">
       <Input type="text" placeholder="Search users" />
       <Button type="submit">Search</Button>
     </div>
+ </div>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px]">
+      <DialogContent className="sm:max-w-[600px] rounded-xl">
         <DialogHeader>
           <DialogTitle>Check out available users</DialogTitle>
           {/* <DialogDescription>
             Make changes to your profile here. Click save when {"you're"} done.
           </DialogDescription> */}
         </DialogHeader>
-        <div className=" py-4">
+        <div className=" py-4 overflow-auto h-[425px] no-scrollbar">
         {data.map((users: any, usersIndex) => (
         <ul
           className="max-w-md divide-y mt-5 divide-gray-200 dark:divide-gray-700"
@@ -119,14 +124,18 @@ export default function UsersComponent() {
                   </div> */}
             </div>
           </li>
+
+    
           {/* ))} */}
         </ul>
       ))}
         </div>
+        
         <DialogFooter>
           {/* <Button type="submit">Save changes</Button> */}
         </DialogFooter>
       </DialogContent>
     </Dialog>
+    </>
   )
 }
