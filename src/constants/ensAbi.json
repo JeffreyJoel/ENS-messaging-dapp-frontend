@@ -70,6 +70,11 @@
 						"internalType": "string",
 						"name": "imageUrl",
 						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
 					}
 				],
 				"internalType": "struct ENSContract.UserInfo[]",
@@ -223,6 +228,11 @@
 				"internalType": "string",
 				"name": "imageUrl",
 				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "userAddress",
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",
@@ -247,6 +257,11 @@
 				"internalType": "string",
 				"name": "imageUrl",
 				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "userAddress",
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",
