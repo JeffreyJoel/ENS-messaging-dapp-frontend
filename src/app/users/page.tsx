@@ -1,13 +1,12 @@
-import Register from "@/components/register/RegisterComponent";
 import Header from "@/components/shared/Header";
-import Image from "next/image";
+import UsersComponent from "@/components/users/UsersComponent";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Header/>
       <div>
-        <Register/>
+        <UsersComponent/>
       </div>
     </main>
   );
