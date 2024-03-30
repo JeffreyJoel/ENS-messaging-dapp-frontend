@@ -1,0 +1,106 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_ensAddress",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "conversations",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "content",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "sender",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "recipient",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_sender",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_recipient",
+				"type": "string"
+			}
+		],
+		"name": "getMessages",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "content",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "sender",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "recipient",
+						"type": "string"
+					}
+				],
+				"internalType": "struct ChatContract.Message[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "content",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "recipient",
+				"type": "string"
+			}
+		],
+		"name": "sendMessage",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
