@@ -1,4 +1,5 @@
 import ChatComponents from "@/components/chat/ChatComponent";
+import ChatComponent from "@/components/chat/newChatComponent";
 import Header from "@/components/shared/Header";
 
 export default function Chat({ params }: { params: { id: string } }) {
@@ -7,6 +8,7 @@ export default function Chat({ params }: { params: { id: string } }) {
       <Header/>
       <div className="w-full">
         <ChatComponents id={params.id}/>
+
       </div>
     </main>
   );

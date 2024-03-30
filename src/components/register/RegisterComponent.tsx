@@ -4,12 +4,14 @@ import { useState, useRef } from "react";
 import useCreateENS from "@/hooks/useHandleEns";
 import { ArrowBigRightIcon, LucideArrowRightFromLine } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function Register() {
   const [file, setFile] = useState("");
   const [name, setName] = useState("");
   const [cid, setCid] = useState("");
   const [uploading, setUploading] = useState(false);
+  const [imgURL, setImgURL] = useState<string | undefined>(undefined);
   const router = useRouter();
 
   const createENS = useCreateENS(
@@ -21,6 +23,10 @@ export default function Register() {
   const inputFile = useRef<HTMLInputElement>(null);
 
   const uploadFile = async (fileToUpload: File) => {
+    // const blob = new Blob([fileToUpload], { type: "image/jpeg" });
+    // const blobURL = URL.createObjectURL(blob);
+
+    // setImgURL(blobURL);
     try {
       setUploading(true);
       const data = new FormData();
@@ -61,11 +67,13 @@ export default function Register() {
 
         <div className="p-0 md:p-6 pb-4 bg-background md:border md:shadow-md rounded-2xl w-full max-w-2xl">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl md:text-2xl font-semibold">Create ENS</h2>
+            <h2 className="text-xl md:text-2xl font-semibold">
+              Create your moniker
+            </h2>
           </div>
           <div className="mt-3 flex flex-col gap-4">
             <label className="text-lg font-semibold">
-              Type in your desired ENS to use this platform.
+              Type in your desired username to use this platform.
             </label>
             <div className=" mt-2 p-3 rounded-lg flex items-center border h-12">
               <input
@@ -83,22 +91,15 @@ export default function Register() {
               onChange={handleChange}
               style={{ display: "none" }}
             />
+              <label
+                className="w-full mx-auto flex flex-col items-center px-4 py-6  border-white text-blue rounded-xl shadow-lg tracking-wide border border-blue cursor-pointer hover:bg-blue hover:text-white"
+                onClick={() => inputFile.current?.click()}
+              >
+                <span className="mt-2 text-base leading-normal text-white">
+                  {cid !== "" && !uploading ? "Uploaded" : (uploading ? "Uploading..." : "Upload your profile image")}
+                </span>
+              </label>
 
-            {/* <button
-            disabled={uploading}
-            onClick={() => inputFile.current?.click()}
-          >
-            {uploading ? "Uploading..." : "Upload"}
-          </button> */}
-            <label
-              className="w-full mx-auto flex flex-col items-center px-4 py-6  border-white text-blue rounded-xl shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white"
-              onClick={() => inputFile.current?.click()}
-            >
-              <span className="mt-2 text-base leading-normal text-white">
-                {" "}
-                {uploading ? "Uploading..." : "Upload a file"}
-              </span>
-            </label>
             <button
               onClick={createENS}
               className=" bg-white hover:bg-blue-800 hover:text-white focus:ring-4 dark:focus:ring-blue-800 py-3 text-gray-900 font-semibold rounded-lg"
