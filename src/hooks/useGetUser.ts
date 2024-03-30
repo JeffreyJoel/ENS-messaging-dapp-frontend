@@ -1,5 +1,3 @@
-
-
 import { useEffect, useState } from "react";
 import { getENSContract } from "../constants/contracts";
 import { readOnlyProvider, } from "../constants/providers";
